@@ -5,7 +5,6 @@ public:
         for(i=0 ; i<n-1-ans ; i++){
             if(nums[i] == nums[i+1]){
                 ch++;
-                // if(ch>2)  ans++;
             }
             else{
                 if(ch>2){
