@@ -3,7 +3,6 @@ public:
     void rotate(vector<vector<int>>& matrix) {
         
         int n=matrix.size();
-        cout<<n<<endl;
         for(int k=0 ; k<n/2 ; k++){
             for(int i=k, j=k ; j<n-k-1 ; j++){
                 
