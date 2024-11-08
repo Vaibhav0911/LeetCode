@@ -2,23 +2,26 @@ class Solution {
 public:
     int threeSumClosest(vector<int>& nums, int target) {
         
-        int sum=0, mn=100000, ans=0 , n=nums.size();
-        for(int i=0 ; i<n-2 ; i++){
-            sum += nums[i];
-            for(int j=i+1 ; j<n-1 ; j++){
-                sum += nums[j];
-                for(int k=j+1 ; k<n ; k++){
-                    sum += nums[k];
-                    if(mn > abs(target-sum)){
-                        mn = abs(target-sum);
-                        ans = sum;
-                    }
-                    sum -= nums[k];
+        sort(nums.begin(), nums.end());
+        int closest_sum = INT_MAX / 2;  // A large value but not overflow
+        
+        for (int i = 0; i < nums.size() - 2; ++i) {
+            int left = i + 1, right = nums.size() - 1;
+            while (left < right) {
+                int current_sum = nums[i] + nums[left] + nums[right];
+                if (abs(current_sum - target) < abs(closest_sum - target)) {
+                    closest_sum = current_sum;
                 }
-                sum -= nums[j];
+                if (current_sum < target) {
+                    ++left;
+                } else if (current_sum > target) {
+                    --right;
+                } else {
+                    return current_sum;
+                }
             }
-            sum -= nums[i];
         }
-        return ans;
+        
+        return closest_sum;
     }
 };
