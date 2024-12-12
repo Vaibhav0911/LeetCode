@@ -7,7 +7,6 @@ public:
         for(int j=i+1 ; j<n ; j++){
             if(height[i] <= height[j]){
                 for(int k=i+1 ; k<j ; k++)    sum += height[i]-height[k];
-                cout<<sum<<endl;
                 i = j;
                 mx=0;
                 continue;
