@@ -41,7 +41,7 @@ public:
                 check(arr, n, i+1);
                 
                 arr = arr1;
-                arr[i][j] = 'F';
+                // arr[i][j] = 'F';
                 
             }
         }
