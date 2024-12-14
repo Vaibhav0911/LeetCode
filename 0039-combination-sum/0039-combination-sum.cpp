@@ -12,12 +12,9 @@ public:
         }
         
         for(int j=i ; j<cand.size() ; j++){
-            int val = cand[j];
-            arr.push_back(val);
-            sum += val;
-            check(cand, arr, target, sum, j);
+            arr.push_back(cand[j]);
+            check(cand, arr, target, sum+cand[j], j);
             arr.pop_back();
-            sum -= val;
         }
         return;
         
