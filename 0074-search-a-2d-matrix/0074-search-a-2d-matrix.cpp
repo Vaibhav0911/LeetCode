@@ -9,7 +9,6 @@ public:
         while(rl <= rh){
             rmid = (rl+rh)/2;
             if(matrix[rmid][0]<=target && matrix[rmid][n-1]>=target)    break;
-            // if(matrix[rmid][0] == target || matr)         return true; 
             else if(matrix[rmid][0] > target)     rh = rmid-1;
             else                                  rl = rmid+1;
         }
