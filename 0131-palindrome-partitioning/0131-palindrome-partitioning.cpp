@@ -22,7 +22,6 @@ public:
         for(int j=i ; j<s.length() ; j++){
             string str = cp(s, i, j);
             if(str != "/"){
-                // cout<<str<<endl;
                 v.push_back(str);
                 check(s, j+1, v);
                 v.pop_back();
