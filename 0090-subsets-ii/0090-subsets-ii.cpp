@@ -6,7 +6,6 @@ public:
     void check(vector<int> nums, vector<int> arr, int i){
         
         if(i == nums.size()){
-            cout<<"h"<<endl;
             ans.push_back(arr);
             return;
         }
