@@ -10,7 +10,6 @@ class Solution {
 public:
     bool hasCycle(ListNode *head) {
         
-        int c=0,pos;
         ListNode *s = head, *f = head;
 
         while(f != NULL && f->next != NULL){
