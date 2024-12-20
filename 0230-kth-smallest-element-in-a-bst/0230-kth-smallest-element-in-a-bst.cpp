@@ -16,7 +16,7 @@ public:
     
     void check(TreeNode* root, int k){
         
-        // if(ind >= k)       return;
+        if(ind >= k)       return;
          
         if(root == NULL)   return;
         
