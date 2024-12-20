@@ -2,18 +2,16 @@ class Solution {
 public:
     int majorityElement(vector<int>& nums) {
         
-        map<int, int> mp;
-        int ans=0,n=nums.size();
-
-        for(auto i: nums){
-            mp[i]++;
-            if(mp[i] >= (n+1)/2){
-                ans=i;
-                break;
+        int elm, c=0;
+        for(int i=0 ; i<nums.size() ; i++){
+            if(c == 0){
+                elm=nums[i];
+                c++;
             }
+            else if(elm == nums[i])       c++;
+            else                          c--;
         }
-
-        return ans;
+        return elm;
 
     }
 };
