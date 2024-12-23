@@ -8,48 +8,16 @@ public:
         
         for(int i=2 ; i<=n ; i++){
             
-            if(ugly[i2]*2 < ugly[i3]*3){
-                if(ugly[i2]*2 < ugly[i5]*5){
-                   ugly[i] = ugly[i2]*2;
-                   i2++;
-                }
-                else if(ugly[i2]*2 > ugly[i5]*5){
-                   ugly[i] = ugly[i5]*5;
-                   i5++;
-                }
-                else{
-                   ugly[i] = ugly[i5]*5;
-                   i2++; i5++;
-                }
-            }
-            else if(ugly[i2]*2 > ugly[i3]*3){
-                if(ugly[i3]*3 < ugly[i5]*5){
-                   ugly[i] = ugly[i3]*3;
-                   i3++;
-                }
-                else if(ugly[i3]*3 > ugly[i5]*5){
-                   ugly[i] = ugly[i5]*5;
-                   i5++;
-                }
-                else{
-                   ugly[i] = ugly[i5]*5;
-                   i3++; i5++;
-                }
-            }
-            else{
-                if(ugly[i3]*3 < ugly[i5]*5){
-                   ugly[i] = ugly[i3]*3;
-                   i3++; i2++;
-                }
-                else if(ugly[i3]*3 > ugly[i5]*5){
-                   ugly[i] = ugly[i5]*5;
-                   i5++;
-                }
-                else{
-                   ugly[i] = ugly[i5]*5;
-                   i3++; i5++; i2++;
-                }
-            }  
+            vector<int> v = {ugly[i2]*2, ugly[i3]*3, ugly[i5]*5};
+            
+            int mn = min(v[0], min(v[1], v[2]));
+            
+            ugly[i] = mn;
+            
+            if(v[0] == mn)    i2++;
+            if(v[1] == mn)    i3++;
+            if(v[2] == mn)    i5++;
+             
         }
         
         return ugly[n];
