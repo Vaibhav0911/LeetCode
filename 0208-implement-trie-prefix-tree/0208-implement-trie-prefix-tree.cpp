@@ -21,22 +21,15 @@ public:
         root = new Node();     
     }
     
-    void ins(string word, int i, Node *root1){
-        if(i == word.length()){
-            root1->flag=true;
-            return;
-        }
-        if(root1->arr[word[i]-'a'] == NULL){
-            root1->arr[word[i]-'a'] = new Node();
-            ins(word, i+1, root1->arr[word[i]-'a']);
-        }
-        else{
-            ins(word, i+1, root1->arr[word[i]-'a']);
-        }
-    }
-    
     void insert(string word) {
-        ins(word, 0, root);
+        
+        Node *root1 = root;
+        for(int i=0 ; i<word.length() ; i++){
+            if(root1->arr[word[i]-'a'] == NULL)     root1->arr[word[i]-'a'] = new Node();
+            root1 = root1->arr[word[i]-'a'];
+        }
+        root1->flag = true;
+        
     }
     
     bool search(string word) {
